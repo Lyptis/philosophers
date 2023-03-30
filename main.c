@@ -6,28 +6,45 @@
 /*   By: svanmeen <svanmeen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 14:43:11 by svanmeen          #+#    #+#             */
-/*   Updated: 2023/03/30 15:51:19 by svanmeen         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:33:21 by svanmeen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*sleeping(void *arg)
+void	*sleeping(void *param)
 {
+	t_arg	arg;
 
+	arg = *((t_arg *)param);
+	pthread_mutex_lock(&(arg.lock));
+	arg.val -= 1;
+	printf("%d cookie left\n", arg.val);
+	pthread_mutex_unlock(&(arg.lock));
+	return (NULL);
 }
 
 int	main(int argc, char **argv)
 {
-	pthread_t	tid[2];
-	int			nb_threads;
-	int			count;
+	pthread_t	*tid;
+	t_arg	*arg;
+	int		i;
 
-	nb_threads = 2;
-	count = 2;
-	while (nb_threads != 0)
+	pthread_mutex_init(&arg.lock, NULL);
+	tid = malloc(sizeof(tid) * atoi(argv[1]));
+	arg.val = atoi(argv[1]);
+	i = 0;
+	while (i < atoi(argv[1]))
 	{
-		pthread_create(&(tid[nb_threads]), NULL, &sleeping, (void *)count);
+		arg.i = i;
+		pthread_create(&(tid[i]), NULL, &sleeping, arg);
+		i++;
 	}
-
+	i = 0;
+	while (i < atoi(argv[1]))
+	{
+		pthread_join(tid[i], NULL);
+		i++;
+	}
+	pthread_mutex_destroy(&arg.lock);
 }
