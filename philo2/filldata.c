@@ -6,7 +6,7 @@
 /*   By: svanmeen <svanmeen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:40:40 by svanmeen          #+#    #+#             */
-/*   Updated: 2023/06/11 16:02:17 by svanmeen         ###   ########.fr       */
+/*   Updated: 2023/06/13 12:22:20 by svanmeen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ t_data	*fill_data(int argc, char **argv)
 
 	info = malloc(sizeof(t_data));
 	info->nb_philo = ft_atoi(argv[1]);
-	info->philo = bornphilo(info->nb_philo);
-	if (!info->philo)
-		return (NULL);
+	info->philo = NULL;
 	info->ttd = ft_atoi(argv[2]);
 	info->tte = ft_atoi(argv[3]);
 	info->tts = ft_atoi(argv[4]);
@@ -58,5 +56,6 @@ t_data	*fill_data(int argc, char **argv)
 	else
 		info->nbe = -1;
 	info->start = 0;
+	
 	return (info);
 }
