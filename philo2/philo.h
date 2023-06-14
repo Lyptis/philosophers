@@ -6,7 +6,7 @@
 /*   By: svanmeen <svanmeen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 14:46:03 by svanmeen          #+#    #+#             */
-/*   Updated: 2023/06/13 11:31:42 by svanmeen         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:49:46 by svanmeen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <stdlib.h>
+# include <stdbool.h>
 
 typedef struct s_data t_data;
 
@@ -38,7 +39,9 @@ typedef struct s_data
 	int				tte;
 	int				tts;
 	int				nbe;
-	unsigned long	*start;
+	bool			dead;
+	pthread_mutex_t	deadlock;
+	unsigned long	start;
 }				t_data;
 
 /*****Initialize*****/

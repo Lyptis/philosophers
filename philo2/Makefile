@@ -6,11 +6,11 @@
 #    By: svanmeen <svanmeen@student.42lyon.fr>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/30 14:45:48 by svanmeen          #+#    #+#              #
-#    Updated: 2023/06/08 18:27:59 by svanmeen         ###   ########.fr        #
+#    Updated: 2023/06/14 15:18:18 by svanmeen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=	main.c	ft_time.c	filldata.c	bornphilo.c
+SRCS	=	main.c	ft_time.c	filldata.c	bornphilo.c	philosinit.c
 HSRC	=	philo.h
 OBJS	=	${SRCS:.c=.o}
 

@@ -6,7 +6,7 @@
 /*   By: svanmeen <svanmeen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:34:37 by svanmeen          #+#    #+#             */
-/*   Updated: 2023/06/14 10:53:06 by svanmeen         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:17:49 by svanmeen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ int	main(int argc, char **argv)
 	if (!philo)
 		return (0);
 	info->philo = philo;
-	//philos_init(philo, info);
+	philos_init(philo, info);
 	return (0);
 }

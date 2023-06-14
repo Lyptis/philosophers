@@ -6,7 +6,7 @@
 /*   By: svanmeen <svanmeen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 17:40:40 by svanmeen          #+#    #+#             */
-/*   Updated: 2023/06/13 12:22:20 by svanmeen         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:14:16 by svanmeen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ t_data	*fill_data(int argc, char **argv)
 	else
 		info->nbe = -1;
 	info->start = 0;
-	
+	info->dead = false;
+	pthread_mutex_init(&(info->deadlock), NULL);
 	return (info);
 }
