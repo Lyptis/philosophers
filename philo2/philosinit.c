@@ -6,7 +6,7 @@
 /*   By: svanmeen <svanmeen@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:36:30 by svanmeen          #+#    #+#             */
-/*   Updated: 2023/06/13 13:00:47 by svanmeen         ###   ########.fr       */
+/*   Updated: 2023/06/14 13:05:10 by svanmeen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@ void	*life(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
+}
+
+void	join_philo(pthread_t *tid, int nb_philo)
+{
+	int		i;
+
+	i = 0;
+	while (i != nb_philo)
+	{
+		pthread_join(tid[i], NULL);
+		i++;
+	}
 }
 
 void philos_init(t_philo **philos, t_data *info)
@@ -45,4 +57,5 @@ void philos_init(t_philo **philos, t_data *info)
 		curr = curr->next;
 		i++;
 	}
+	join_philo(tid, info->nb_philo);
 }
